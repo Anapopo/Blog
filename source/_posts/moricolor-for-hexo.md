@@ -1,7 +1,7 @@
 ---
 title: 「MoriColor」一款移植自 Typecho 的 Hexo 主题
 date: 2018-04-21 22:24:18
-thumbnail: https://i.loli.net/2018/04/21/5adb51d4cf633.png
+thumbnail: https://i.loli.net/2018/10/28/5bd5a47b00190.png
 tags:
 - hexo
 ---

@@ -1,7 +1,7 @@
 ---
 title: 全新安装 Ubuntu 18.04
 date: 2018-09-19 16:51:00
-thumbnail: https://i.loli.net/2018/10/28/5bd54a6d46f48.png
+thumbnail: https://i.loli.net/2018/10/28/5bd59ce53dafa.png
 tags:
  - linux
 ---

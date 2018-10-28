@@ -1,7 +1,7 @@
 ---
 title: 「OpenWrt」之编译小记
 date: 2017-09-28 00:38:00
-thumbnail: https://i.loli.net/2018/05/17/5afd8b8e996ba.jpg
+thumbnail: https://i.loli.net/2018/10/28/5bd5a14c3c642.png
 tags:
 - openwrt
 ---

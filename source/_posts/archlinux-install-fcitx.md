@@ -1,7 +1,7 @@
 ---
 title: 为 Arch Linux 安装搜狗输入法
 date: 2018-05-10 18:23:10
-thumbnail: https://i.loli.net/2018/05/10/5af418e08c961.png
+thumbnail: https://i.loli.net/2018/10/28/5bd59e9158040.png
 tags:
 - archlinux
 ---

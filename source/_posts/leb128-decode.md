@@ -1,7 +1,7 @@
 ---
 title: 记一次手动解码「LEB128」压缩数据
 date: 2018-05-21 16:17:02
-thumbnail: https://i.loli.net/2018/07/23/5b55e70b00635.png
+thumbnail: https://i.loli.net/2018/10/28/5bd59c0021e77.png
 tags:
 - 算法
 ---
