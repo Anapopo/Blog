@@ -4,7 +4,7 @@
 
 # Site
 title: KIKOのSPACE
-subtitle:
+subtitle: 
 description: 愿你走出半生，归来仍是少年。
 author: Anapopo
 language: zh-CN
@@ -44,6 +44,17 @@ highlight:
   line_number: false
   auto_detect: false
   tab_replace: false
+
+# RSS
+feed:
+  type: atom
+  path: atom.xml
+  limit: 100
+  order_by: -date
+
+# Sitemap
+sitemap:
+  path: sitemap.xml
 
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
