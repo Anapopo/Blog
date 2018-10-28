@@ -1,0 +1,38 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "generate": "hexo g",
+    "deploy": "hexo d",
+    "server": "hexo s",
+    "rebuild": "hexo clean && hexo s",
+    "compress": "gulp",
+    "build": "hexo clean && hexo g",
+    "server2": "cd ./public && browser-sync start --server --files \"css/*.css, *.html\""
+  },
+  "hexo": {
+    "version": "3.8.0"
+  },
+  "dependencies": {
+    "hexo": "^3.5.0",
+    "hexo-browsersync": "^0.3.0",
+    "hexo-cli": "^1.1.0",
+    "hexo-deployer-git": "^0.3.1",
+    "hexo-filter-github-emojis": "^1.4.4",
+    "hexo-generator-archive": "latest",
+    "hexo-generator-category": "latest",
+    "hexo-generator-feed": "latest",
+    "hexo-generator-index": "latest",
+    "hexo-generator-sitemap": "latest",
+    "hexo-generator-tag": "latest",
+    "hexo-pagination": "^0.1.0",
+    "hexo-prism-plugin": "^2.3.0",
+    "hexo-renderer-ejs": "^0.3.1",
+    "hexo-renderer-marked": "latest",
+    "hexo-server": "^0.3.1",
+    "hexo-tag-ruby": "^1.0.2",
+    "highlight.js": "^9.12.0",
+    "node-prismjs": "^0.1.1"
+  }
+}
