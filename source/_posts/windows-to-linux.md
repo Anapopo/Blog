@@ -5,7 +5,8 @@ tags:
  - linux
 ---
 ## 引言
-> 于2018.04.15 转投「ArchLinux」+ 「KDE」怀抱了。
+> 于 2018.10.01 回归 Ubuntu + GNOME 了。
+> 于 2018.04.15 转投「ArchLinux」+ 「KDE」怀抱了。
 
 终于在本周狠下心来，抛弃了臃肿不堪的「Windows 10」，投入了「Linux」和开源世界的怀抱来。 
 
@@ -27,7 +28,7 @@ tags:
 * ~~「Wine-QQ-TIM」我还能在Linux下上QQ~~ 不太方便，还是TG大法好
 * 「Telegram」安全、加密的聊天工具
 * 「VLC」看视频也没问题的
-* ~~「Gnome桌面环境」令Windows嫉妒的桌面效果~~ KDE大法好
+* ~~「Gnome桌面环境」令Windows嫉妒的桌面效果~~ ~~KDE大法好~~ GNOME 大法好
 
 ## 自问自答
 Q：口亨，Windows能打游戏，Linux不能。
