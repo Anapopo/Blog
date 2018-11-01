@@ -5,8 +5,7 @@ thumbnail: https://i.loli.net/2018/10/28/5bd59c0021e77.png
 tags:
 - 算法
 ---
-几天前因为一个项目需要用到「Google」的[Protocol Buffers](https://developers.google.com/protocol-buffers/)，在项目页找了一圈也没有提供`Bash`版本的 {% ruby 编码器|Encoder %} 和 {% ruby 解码器|Decoder %} ，于是想到按照官方文档给出的数据结构手动解码 {% ruby 二进制数据流|Binary Data Stream %} 。
-
+几天前因为一个项目需要用到「Google」的[Protocol Buffers](https://developers.google.com/protocol-buffers/)，在项目页找了一圈也没有提供 `Bash` 版本的编码器和解码器，于是想到按照官方文档给出的数据结构手动解码 {% ruby 二进制数据流|Binary Data Stream %}。
 <!-- more -->
 
 ## 解码流程
