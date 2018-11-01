@@ -1,15 +1,14 @@
 ---
 title: Ubuntu 安装 Caddy 为系统级服务
 date: 2018-07-26 11:30:00
+thumbnail: https://i.loli.net/2018/11/01/5bdad2c835682.png
 tags:
 - caddy
 - systemd
 ---
 ### 引言
 
-关于Caddy，其作为开箱即用的 HTTPS 服务器而闻名，在此便不多赘述。我根据 Caddy 官方提供的英文文档，一步一步地将 Caddy 通过`linux-systemd`安装至 Ubuntu 系统中，该操作方法也适用于其他将`linux-systemd`作为启动管理工具的 Linux 发行版，包括 ArchLinux。
-
-<!-- more -->
+关于 Caddy，其作为开箱即用的 HTTPS 服务器而闻名，在此便不多赘述。我根据 Caddy 官方提供的英文文档，一步一步地将 Caddy 通过 `linux-systemd` 安装至 Ubuntu 系统中。<!-- more -->该操作方法也适用于其他将 `linux-systemd` 作为启动管理工具的 Linux 发行版，包括 ArchLinux。
 
 ### 下载 tar.gz 压缩包
 
