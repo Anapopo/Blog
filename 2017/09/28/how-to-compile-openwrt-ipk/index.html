@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+
+<html style="display:none">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <!--
+        © neoFelhz
+        GitHub: https://github.com/neoFelhz/hexo-theme-spectre
+        Version: 0.1.1
+    -->
+    <script>
+        window.materialVersion = "0.1.1",
+        window.oldVersion = [
+            
+                
+                    "0.1.0"
+                
+            
+        ]
+    </script>
+
+    <!-- DNS Prefetch -->
+    
+
+    <!-- Meta & Title & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<!-- Title -->
+
+<title>「OpenWrt」之编译小记 | KIKOのSPACE</title>
+
+<!-- Favicons -->
+<link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+<link rel="icon" href="/img/favicon.png">
+
+<meta name="format-detection" content="telephone=no">
+<meta name="description" itemprop="description" content="最近课堂上的专业课不好玩 ，于是入了一个破二手路由器 TP-LINK WR742N 折腾着玩 ，以下简称 WR742 。 后来又入了斐讯K2路由器来折腾。这是一款上市很久的型号了，官方固件都出到v6了，好在和 WR740 硬件构造上基本一样，可以直接使用 openwrt 提供的 WR740 的固件 , 不过光有固件不折腾折腾怎么行呢？  ">
+<meta name="keywords" content=",openwrt">
+<meta name="theme-color" content="#0097A7">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+    <!-- Import File -->
+    <!-- Import Lsloader -->
+<script>!function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}},lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}},lsloader.setLS=function(a,b){try{localStorage.setItem(a,b)}catch(c){}},lsloader.getLS=function(a){var b="";try{b=localStorage.getItem(a)}catch(c){b=""}return b},versionString="/*"+(window.materialVersion||"unknownVersion")+"*/",lsloader.clean=function(){var a,b;try{for(a=[],b=0;b<localStorage.length;b++)a.push(localStorage.key(b));a.forEach(function(a){var c,b=lsloader.getLS(a);window.oldVersion&&(c=window.oldVersion.reduce(function(a,c){return a||-1!==b.indexOf("/*"+c+"*/")},!1),c&&lsloader.removeLS(a))})}catch(c){}},lsloader.clean(),lsloader.load=function(a,b,c,d){var e,f;if("boolean"==typeof c&&(d=c,c=void 0),d=d||!1,c=c||function(){},e=this.getLS(a),e&&-1===e.indexOf(versionString))return this.removeLS(a),this.requestResource(a,b,c,d),void 0;if(e){if(f=e.split(versionString)[0],f!=b)return console.log("reload:"+b),this.removeLS(a),this.requestResource(a,b,c,d),void 0;e=e.split(versionString)[1],d?(this.jsRunSequence.push({name:a,code:e}),this.runjs(b,a,e)):(document.getElementById(a).appendChild(document.createTextNode(e)),c())}else this.requestResource(a,b,c,d)},lsloader.requestResource=function(a,b,c,d){var e=this;d?this.iojs(b,a,function(a,b,c){e.setLS(b,a+versionString+c),e.runjs(a,b,c)}):this.iocss(b,a,function(c){document.getElementById(a).appendChild(document.createTextNode(c)),e.setLS(a,b+versionString+c)},c)},lsloader.iojs=function(a,b,c){var e,d=this;d.jsRunSequence.push({name:b,code:""});try{e=new XMLHttpRequest,e.open("get",a,!0),e.onreadystatechange=function(){if(4==e.readyState){if((e.status>=200&&e.status<300||304==e.status)&&""!=e.response)return c(a,b,e.response),void 0;d.jsfallback(a,b)}},e.send(null)}catch(f){d.jsfallback(a,b)}},lsloader.iocss=function(a,b,c,d){var f,e=this;try{f=new XMLHttpRequest,f.open("get",a,!0),f.onreadystatechange=function(){if(4==f.readyState){if((f.status>=200&&f.status<300||304==f.status)&&""!=f.response)return c(f.response),d(),void 0;e.cssfallback(a,b,d)}},f.send(null)}catch(g){e.cssfallback(a,b,d)}},lsloader.iofonts=function(a,b,c,d){var f,e=this;try{f=new XMLHttpRequest,f.open("get",a,!0),f.onreadystatechange=function(){if(4==f.readyState){if((f.status>=200&&f.status<300||304==f.status)&&""!=f.response)return c(f.response),d(),void 0;e.cssfallback(a,b,d)}},f.send(null)}catch(g){e.cssfallback(a,b,d)}},lsloader.runjs=function(a,b,c){var d,e,f;if(b&&c)for(d in this.jsRunSequence)this.jsRunSequence[d].name==b&&(this.jsRunSequence[d].code=c);this.jsRunSequence[0]&&this.jsRunSequence[0].code&&"failed"!=this.jsRunSequence[0].status?(e=document.createElement("script"),e.appendChild(document.createTextNode(this.jsRunSequence[0].code)),e.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(e),this.jsRunSequence.shift(),this.jsRunSequence.length>0&&this.runjs()):this.jsRunSequence[0]&&"failed"==this.jsRunSequence[0].status&&(f=this,e=document.createElement("script"),e.src=this.jsRunSequence[0].path,e.type="text/javascript",this.jsRunSequence[0].status="loading",e.onload=function(){f.jsRunSequence.shift(),f.jsRunSequence.length>0&&f.runjs()},document.body.appendChild(e))},lsloader.tagLoad=function(a,b){this.jsRunSequence.push({name:b,code:"",path:a,status:"failed"}),this.runjs()},lsloader.jsfallback=function(a,b){if(!this.jsnamemap[b]){this.jsnamemap[b]=b;for(var c in this.jsRunSequence)this.jsRunSequence[c].name==b&&(this.jsRunSequence[c].code="",this.jsRunSequence[c].status="failed",this.jsRunSequence[c].path=a);this.runjs()}},lsloader.cssfallback=function(a,b,c){var d,e;this.cssnamemap[b]||(this.cssnamemap[b]=1,d=document.createElement("link"),d.type="text/css",d.href=a,d.rel="stylesheet",d.onload=d.onerror=c,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(d,e))},lsloader.runInlineScript=function(a,b){var c=document.getElementById(b).innerText;this.jsRunSequence.push({name:a,code:c}),this.runjs()},lsloader.css=function(a,b){"undefined"==typeof window.lsLoadCSSMaxNums&&(window.lsLoadCSSMaxNums=0),window.lsLoadCSSMaxNums++,lsloader.load(a,b,function(){"undefined"==typeof window.lsLoadCSSNums&&(window.lsLoadCSSNums=0),window.lsLoadCSSNums++,window.lsLoadCSSNums==window.lsLoadCSSMaxNums&&(document.documentElement.style.display="")},!1)},lsloader.js=function(a,b){lsloader.load(a,b,!0)}}();</script>
+<!-- Import queue -->
+<script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+<!-- Import CSS -->
+<style id="spectre_css"></style><script>lsloader.css("spectre_css","/libs/spectre/spectre.min.css")</script>
+<style id="spectre_exp_css"></style><script>lsloader.css("spectre_exp_css","/libs/spectre/spectre-exp.min.css")</script>
+<style id="style_css"></style><script>lsloader.css("spectre_exp_css","/css/style.min.css")</script>
+<style id="prism_css"></style><script>lsloader.css("prism_css","/css/prism.min.css")</script>
+
+
+    <!-- Site Verification -->
+    
+
+
+    <!-- RSS -->
+    
+    
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    
+
+
+    <!-- The Open Graph & Twitter Card Protocol -->
+    
+
+<meta property="og:title" content="「OpenWrt」之编译小记 | KIKOのSPACE">
+<meta property="og:type" content="blog">
+<meta property="og:url" content="https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/">
+<meta property="og:image" content="https://i.loli.net/2018/10/28/5bd5a14c3c642.png">
+<meta property="og:description" content="最近课堂上的专业课不好玩 ，于是入了一个破二手路由器 TP-LINK WR742N 折腾着玩 ，以下简称 WR742 。 后来又入了斐讯K2路由器来折腾。这是一款上市很久的型号了，官方固件都出到v6了，好在和 WR740 硬件构造上基本一样，可以直接使用 openwrt 提供的 WR740 的固件 , 不过光有固件不折腾折腾怎么行呢？  ">
+<meta property="og:article:tag" content="openwrt"> 
+
+
+    <meta property="article:published_time" content="Thu Sep 28 2017 00:38:00 GMT+0800">
+    <meta property="article:modified_time" content="Sun Oct 28 2018 19:45:21 GMT+0800">
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+    <meta property="twitter:site" content="https://twitter.com/twitter">
+    <meta property="twitter:creator" content="twitter">
+
+
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/">
+
+    <!-- Structured Data -->
+    
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.kiko.space"
+    },
+    "headline": "「OpenWrt」之编译小记",
+    
+    "image": "https://i.loli.net/2018/10/28/5bd5a14c3c642.png",
+    
+    "datePublished": "2017-09-27T16:38:00.000Z",
+    "dateModified": "2018-10-28T11:45:21.528Z",
+    "author": {
+        "@type": "Person",
+        "name": "Anapopo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "KIKOのSPACE",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",openwrt",
+    "description": "最近课堂上的专业课不好玩 ，于是入了一个破二手路由器 TP-LINK WR742N 折腾着玩 ，以下简称 WR742 。 后来又入了斐讯K2路由器来折腾。这是一款上市很久的型号了，官方固件都出到v6了，好在和 WR740 硬件构造上基本一样，可以直接使用 openwrt 提供的 WR740 的固件 , 不过光有固件不折腾折腾怎么行呢？  "
+}
+</script>
+
+
+    <!-- Custom Head -->
+
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+    
+
+    <body>
+        <div class="off-canvas off-canvas-sidebar-show">
+            <!-- off-screen toggle button -->
+            <a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar">
+                <i class="icon material-icons casino-icons">menu</i>
+            </a>
+
+            <div id="sidebar" class="off-canvas-sidebar">
+                <div id="sidebar-content">
+                    <ul class="nav">
+<a class="off-canvas-toggle btn btn-link btn-action" href="#close">
+    <i class="icon material-icons casino-icons">arrow_back</i>
+</a>
+<div class="sidebar-top"></div>
+<span class="h4 text-center">KIKOのSPACE</span>
+<div class="divider"></div>
+    <!-- Homepage -->
+    
+        <li class="nav-item">
+            <a href="/">
+                
+                    <i class="icon material-icons sidebar-icons">home</i>
+                
+            主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives -->
+    
+        <li class="nav-item">
+            <a href="/archives/">
+                
+                    <i class="icon material-icons sidebar-icons">inbox</i>
+                
+            归档
+            </a>
+        </li>
+        
+    
+
+    <!-- Search -->
+    <!---->
+
+    <!-- Pages  -->
+    
+        <li class="nav-item">
+            <a href="/about">
+                
+                    <i class="icon material-icons sidebar-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="/tags.html">
+                
+                    <i class="icon material-icons sidebar-icons">bookmark</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="/links.html">
+                
+                    <i class="icon material-icons sidebar-icons">people</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="https://wiki.kiko.space">
+                
+                    <i class="icon material-icons sidebar-icons">polymer</i>
+                
+                维基
+            </a>
+        </li>
+        
+            <div class="divider"></div>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li class="nav-item">
+            <a href="/archives/" style="display: flex">
+                文章总数
+                <div style="flex-grow: 1;padding-left: 1rem!important"></div>
+                <span class="sidebar-badge">16</span>
+            </a>
+        </li>
+        
+    
+
+</ul>
+
+
+                </div>
+            </div>
+
+            <a class="off-canvas-overlay" href="#close"></a>
+
+            <div class="off-canvas-content">
+                <main>
+                    <!-- Layouts -->
+
+    <!-- Post Moudule -->
+    <div class="container container-post">
+    <div class="card post-card col-mx-auto">
+        
+            <div class="card-image" style="background-image: url('https://i.loli.net/2018/10/28/5bd5a14c3c642.png');"></div>
+        
+        <div class="card-header">
+            <div class="card-header-title">
+                <div class="card-title h4">「OpenWrt」之编译小记</div>
+            </div>
+            <div class="divider"></div>
+            <div>
+                <!-- Category -->
+                
+                <!-- Post Tags -->
+                
+                    <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/openwrt/">openwrt</a></li></ul>
+                
+            </div>
+        </div>
+        <br>
+        <div id="post-content" class="card-body">
+            <p>最近课堂上的专业课不好玩 ，于是入了一个破二手路由器 <code>TP-LINK WR742N</code> 折腾着玩 ，以下简称 <code>WR742</code> 。 <del>后来又入了斐讯K2路由器来折腾。</del><br>这是一款上市很久的型号了，官方固件都出到v6了，好在和 <code>WR740</code> 硬件构造上基本一样，可以直接使用 openwrt 提供的 <code>WR740</code> 的固件 , 不过光有固件不折腾折腾怎么行呢？  </p>
+<a id="more"></a>
+<h3 id="预期目的"><a href="#预期目的" class="headerlink" title="预期目的"></a>预期目的</h3><ul>
+<li>自动通过 H3C 校园网 802.1x 认证 ✔</li>
+<li>自动科学上网 ✔</li>
+<li>免流上校园网 ✖</li>
+</ul>
+<p>Openwrt 官方提供编译用 SDK，无需下载整个源码即可快速编译 ipk 包。所以我只要下载 SDK 后配置好再编译就可以了。<br>来，编译几个 ipk 包试试。逛了一圈 Github ，找到能够满足 H3C 认证要求的项目 <code>njit8021xclient</code> , 满足科学上网的项目 <code>openwrt-ssr</code>。</p>
+<h3 id="小坑小记"><a href="#小坑小记" class="headerlink" title="小坑小记"></a>小坑小记</h3><ul>
+<li>环境内存尽可能大（采用2G内存)</li>
+<li>内存无法满足需求可开启 swap 空间</li>
+<li>硬盘留下足够的空间（采用30G SSD硬盘)</li>
+<li>切换到非 root 用户执行编译操作 </li>
+</ul>
+<p>为保证环境纯净，就临时租用了一台 US 的主机 ，保证不会出现像国内服务器的404现象。选择按量付费 ，等编译完之后提取固件和 ipk 后留个快照就可以退掉主机了 ，十分节省软妹币和维护时间 ，我才不会说我全程都是在手机操作的呢（笑。</p>
+<h3 id="0x00-编译环境"><a href="#0x00-编译环境" class="headerlink" title="0x00 编译环境"></a>0x00 编译环境</h3><ul>
+<li>Ubuntu <code>16.04 xenial</code></li>
+<li>OpenWrt SDK <code>Chaos Calmer 15.05.1</code></li>
+<li>Platform <code>ar71xx</code></li>
+<li>Device <code>TP-LINK WR742N Magic Version</code></li>
+</ul>
+<h3 id="0x01-安装依赖包"><a href="#0x01-安装依赖包" class="headerlink" title="0x01 安装依赖包"></a>0x01 安装依赖包</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> git-core build-essential libssl-dev libncurses5-dev unzip <span class="token function">gawk</span> zlib1g-dev 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="0x02-准备OpenWrt-SDK"><a href="#0x02-准备OpenWrt-SDK" class="headerlink" title="0x02 准备OpenWrt SDK"></a>0x02 准备OpenWrt SDK</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> ~                                                                     
+<span class="token function">wget</span> https://downloads.openwrt.org/chaos_calmer/15.05.1/ar71xx/generic/OpenWrt-SDK-15.05.1-ar71xx-generic_gcc-4.8-linaro_uClibc-0.9.33.2.Linux-x86_64.tar.bz2
+<span class="token function">tar</span> xjf OpenWrt-SDK-ar71xx-*
+<span class="token function">mv</span> OpenWrt-SDK-ar71xx-* openwrt
+<span class="token function">cd</span> openwrt
+<span class="token function">cp</span> feeds.conf.default feeds.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="0x03-编译前配置"><a href="#0x03-编译前配置" class="headerlink" title="0x03 编译前配置"></a>0x03 编译前配置</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 安装 feeds</span>
+./scripts/feeds update packages
+./scripts/feeds <span class="token function">install</span> libpcre
+<span class="token comment" spellcheck="true"># 获取 Makefile</span>
+<span class="token function">git</span> clone https://github.com/ywb94/openwrt-ssr.git package/openwrt-ssr
+<span class="token function">make</span> menuconfig
+<span class="token comment" spellcheck="true"># 选择要编译的包 </span>
+<span class="token comment" spellcheck="true">#luci -> 3. Applications -> luci-app-shadowsocksR         原始版本</span>
+<span class="token comment" spellcheck="true">#luci -> 3. Applications -> luci-app-shadowsocksR-GFW     GFWList版本</span>
+<span class="token comment" spellcheck="true">#Network -> njit8021xclient</span>
+<span class="token comment" spellcheck="true">#Network -> njit8021xclient-web</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="0x04-开始编译"><a href="#0x04-开始编译" class="headerlink" title="0x04 开始编译"></a>0x04 开始编译</h3><p><code>make package/openwrt-ssr/compile v=99</code><br>编译成功后的文件在 <code>~/openwrt/bin/target/ar71xx</code> 目录下。</p>
+<h3 id="已知bug"><a href="#已知bug" class="headerlink" title="已知bug"></a>已知bug</h3><p>网口顺序是反着来的，即硬件上的LAN1口=软件上的WAN口，不过不影响使用，那我也反着插好了🌚。  </p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://wiki.openwrt.org/doc/howto/buildroot.exigence" target="_blank" rel="noopener">官方 Wiki</a></li>
+<li><a href="https://wiki.openwrt.org/doc/faq/development" target="_blank" rel="noopener">官方 Development</a></li>
+<li><a href="https://github.com/liuqun/njit8021xclient" target="_blank" rel="noopener">njit8021xclient</a></li>
+<li><a href="https://github.com/ywb94/openwrt-ssr" target="_blank" rel="noopener">openwrt-ssr</a></li>
+</ul>
+
+            
+    <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+        <p>
+            <strong>本文作者：Anapopo</strong>
+            <br>
+            <strong>
+             
+                本文采用 <a rel="nofollow noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC BY-NC-SA 3.0 Unported</a> 协议进行许可，阅读 <a href="/creativecommons.html" target="_blank">相关说明</a>
+            </strong>
+            <br>
+            <strong>本文链接：</strong><a href="https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/">https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/</a>
+        </p>
+    </blockquote>
+
+        </div>
+        <div class="post-footer-info bg-gray">
+            <figure class="avatar centered">
+    <img src="/img/avatar.png">
+</figure>
+<section class="post-footer-date">
+    <p class="card-subtitle text-gray mb-0">Publish: 9月 28, 2017
+        
+            <br>Update: 10月 28, 2018
+        
+    </p>
+</section>
+<section class="post-footer-action">
+    <!-- Post Share -->
+    <div class="dropdown dropdown-right float-right">
+<a class="btn btn-link btn-gray dropdown-toggle" tabindex="0"><i class="icon material-icons casino-icons">share</i></a>
+<ul class="menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=「OpenWrt」之编译小记&url=https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/index.html&pic=https://blog.kiko.space/img/favicon.png&searchPic=false&style=simple" target="_blank">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=「OpenWrt」之编译小记&url=https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/index.html&via=Anapopo" target="_blank">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/index.html" target="_blank">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+</ul>
+</div>
+    <!-- Post Qrcoe -->
+    
+</section>
+
+        </div>
+        <div class="divider m-0"></div>
+        <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2018/03/21/windows-to-linux/">
+                <div class="page-item-title h5"><i class="icon material-icons casino-icons">arrow_back</i></div>
+                <div class="page-item-subtitle">从 Windows 到 Linux</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2017/08/04/how-to-get-50w-books-info/">
+                <div class="page-item-title h5"><i class="icon material-icons casino-icons">arrow_forward</i></div>
+                <div class="page-item-subtitle">获取学校图书馆大约50万藏书信息</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+        
+            <div class="card-footer">
+                <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="btn btn-primary disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://blog.kiko.space/2017/09/28/how-to-compile-openwrt-ipk/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://disqus.com/next/config.json', true);
+    xhr.timeout = 4000;
+    xhr.send();
+    xhr.onload = function() {
+        if(this.status == 200||this.status == 304){
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//kikospace.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            document.querySelector(".disqus_click_btn").setAttribute("style", "display:none")
+        }
+    };
+    xhr.ontimeout = function(e) {
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:block");
+    };
+    xhr.onerror = function(e) {
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:block");
+    };
+    document.querySelector(".disqus_click_btn").onclick=function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//kikospace.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:none")
+    };
+</script>
+
+            </div>
+        
+    </div>
+
+</div>
+
+
+                </main>
+                <footer class="centered">
+    <div class="footer-content">
+        <div class="footer-sns-list">
+            <!-- Twitter -->
+
+    <a href="https://twitter.com/twitter" target="_blank">
+        <button class="footer-sns-btn footer-sns-twitter"></button></a>
+
+
+<!-- Facebook -->
+
+    <a href="https://www.facebook.com/facebook" target="_blank">
+        <button class="footer-sns-btn footer-sns-facebook"></button></a>
+
+
+<!-- Google + -->
+
+
+<!-- Weibo -->
+
+
+<!-- Instagram -->
+
+
+<!-- Tumblr -->
+
+
+<!-- Github -->
+
+    <a href="https://github.com/anapopo" target="_blank">
+        <button class="footer-sns-btn footer-sns-github"></button></a>
+
+
+<!-- LinkedIn -->
+
+
+<!-- Zhihu -->
+
+
+<!-- Bilibili -->
+
+
+<!-- Telegram -->
+
+
+<!-- V2EX -->
+
+
+<!-- Segmentfault -->
+
+        </div>
+        <div class="footer-copyright">Copyright&nbsp;©&nbsp;<span year=""></span>
+            <a href="https://blog.kiko.space">KIKOのSPACE</a>
+        </div>
+        <div class="footer-develop">
+            <div>Powered by
+                <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+            </div>
+            <div>Theme -
+                <a href="https://github.com/neoFelhz/hexo-theme-spectre" target="_blank" class="footer-develop-a">Spectre</a>
+            </div>
+        </div>
+    </div>
+</footer>
+                <div class="back-to-top rounded">
+    <a href="#"><i class="icon material-icons casino-icons">expand_less</i></a>
+</div>
+            </div>
+        </div>
+        <!-- Import JS -->
+<script>lsloader.js("lazy_js","/libs/js/lazyload.min.js")</script>
+
+<!-- Comment -->
+
+    <!-- 使用 DISQUS js 代码 -->
+
+ 
+
+<script type="text/ls-javascript" id="lazy-load">
+    var myLazyLoad = new LazyLoad({
+        elements_selector: ".lazy"
+    });
+    // Start Queue
+    window.onload = function() {
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    };
+</script>
+<script type="text/javascript">
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+    
+        copyrightSince = 2017;
+            if (copyrightSince === copyrightNow) {
+            textContent.textContent = copyrightNow
+        } else {
+            textContent.textContent = copyrightSince + ' - ' + copyrightNow
+        }
+    
+</script>
+
+<!-- Console log -->
+<script>
+    !function(){for(var e=document.querySelectorAll('script[type="text/ls-javascript"]'),r=0;r<e.length;++r){var o=e[r];lsloader.runInlineScript(o.id,o.id)}}(),
+    console.log(" \n %c Spectre Theme | © neoFelhz | Verision 0.1.1 %c https://github.com/neoFelhz/hexo-theme-spectre ", "color: #fff; background-image: linear-gradient(90deg, rgb(236, 61, 1213) 0%, rgb(94, 108, 198) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(94, 108, 198) 0%, rgb(194, 194, 194) 0%); padding:5px 0;");
+</script>
+    </body>
+
+    
+
+</html>

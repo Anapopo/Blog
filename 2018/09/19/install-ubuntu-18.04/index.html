@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html style="display:none">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <!--
+        © neoFelhz
+        GitHub: https://github.com/neoFelhz/hexo-theme-spectre
+        Version: 0.1.1
+    -->
+    <script>
+        window.materialVersion = "0.1.1",
+        window.oldVersion = [
+            
+                
+                    "0.1.0"
+                
+            
+        ]
+    </script>
+
+    <!-- DNS Prefetch -->
+    
+
+    <!-- Meta & Title & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<!-- Title -->
+
+<title>全新安装 Ubuntu 18.04 | KIKOのSPACE</title>
+
+<!-- Favicons -->
+<link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+<link rel="icon" href="/img/favicon.png">
+
+<meta name="format-detection" content="telephone=no">
+<meta name="description" itemprop="description" content="首先打开「清华大学镜像站」，获取 Ubuntu 的国内镜像地址。不要问我为什么用清华镜像源，因为主页看起来很可口漂亮，速度比较快。">
+<meta name="keywords" content=",linux">
+<meta name="theme-color" content="#0097A7">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+    <!-- Import File -->
+    <!-- Import Lsloader -->
+<script>!function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}},lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}},lsloader.setLS=function(a,b){try{localStorage.setItem(a,b)}catch(c){}},lsloader.getLS=function(a){var b="";try{b=localStorage.getItem(a)}catch(c){b=""}return b},versionString="/*"+(window.materialVersion||"unknownVersion")+"*/",lsloader.clean=function(){var a,b;try{for(a=[],b=0;b<localStorage.length;b++)a.push(localStorage.key(b));a.forEach(function(a){var c,b=lsloader.getLS(a);window.oldVersion&&(c=window.oldVersion.reduce(function(a,c){return a||-1!==b.indexOf("/*"+c+"*/")},!1),c&&lsloader.removeLS(a))})}catch(c){}},lsloader.clean(),lsloader.load=function(a,b,c,d){var e,f;if("boolean"==typeof c&&(d=c,c=void 0),d=d||!1,c=c||function(){},e=this.getLS(a),e&&-1===e.indexOf(versionString))return this.removeLS(a),this.requestResource(a,b,c,d),void 0;if(e){if(f=e.split(versionString)[0],f!=b)return console.log("reload:"+b),this.removeLS(a),this.requestResource(a,b,c,d),void 0;e=e.split(versionString)[1],d?(this.jsRunSequence.push({name:a,code:e}),this.runjs(b,a,e)):(document.getElementById(a).appendChild(document.createTextNode(e)),c())}else this.requestResource(a,b,c,d)},lsloader.requestResource=function(a,b,c,d){var e=this;d?this.iojs(b,a,function(a,b,c){e.setLS(b,a+versionString+c),e.runjs(a,b,c)}):this.iocss(b,a,function(c){document.getElementById(a).appendChild(document.createTextNode(c)),e.setLS(a,b+versionString+c)},c)},lsloader.iojs=function(a,b,c){var e,d=this;d.jsRunSequence.push({name:b,code:""});try{e=new XMLHttpRequest,e.open("get",a,!0),e.onreadystatechange=function(){if(4==e.readyState){if((e.status>=200&&e.status<300||304==e.status)&&""!=e.response)return c(a,b,e.response),void 0;d.jsfallback(a,b)}},e.send(null)}catch(f){d.jsfallback(a,b)}},lsloader.iocss=function(a,b,c,d){var f,e=this;try{f=new XMLHttpRequest,f.open("get",a,!0),f.onreadystatechange=function(){if(4==f.readyState){if((f.status>=200&&f.status<300||304==f.status)&&""!=f.response)return c(f.response),d(),void 0;e.cssfallback(a,b,d)}},f.send(null)}catch(g){e.cssfallback(a,b,d)}},lsloader.iofonts=function(a,b,c,d){var f,e=this;try{f=new XMLHttpRequest,f.open("get",a,!0),f.onreadystatechange=function(){if(4==f.readyState){if((f.status>=200&&f.status<300||304==f.status)&&""!=f.response)return c(f.response),d(),void 0;e.cssfallback(a,b,d)}},f.send(null)}catch(g){e.cssfallback(a,b,d)}},lsloader.runjs=function(a,b,c){var d,e,f;if(b&&c)for(d in this.jsRunSequence)this.jsRunSequence[d].name==b&&(this.jsRunSequence[d].code=c);this.jsRunSequence[0]&&this.jsRunSequence[0].code&&"failed"!=this.jsRunSequence[0].status?(e=document.createElement("script"),e.appendChild(document.createTextNode(this.jsRunSequence[0].code)),e.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(e),this.jsRunSequence.shift(),this.jsRunSequence.length>0&&this.runjs()):this.jsRunSequence[0]&&"failed"==this.jsRunSequence[0].status&&(f=this,e=document.createElement("script"),e.src=this.jsRunSequence[0].path,e.type="text/javascript",this.jsRunSequence[0].status="loading",e.onload=function(){f.jsRunSequence.shift(),f.jsRunSequence.length>0&&f.runjs()},document.body.appendChild(e))},lsloader.tagLoad=function(a,b){this.jsRunSequence.push({name:b,code:"",path:a,status:"failed"}),this.runjs()},lsloader.jsfallback=function(a,b){if(!this.jsnamemap[b]){this.jsnamemap[b]=b;for(var c in this.jsRunSequence)this.jsRunSequence[c].name==b&&(this.jsRunSequence[c].code="",this.jsRunSequence[c].status="failed",this.jsRunSequence[c].path=a);this.runjs()}},lsloader.cssfallback=function(a,b,c){var d,e;this.cssnamemap[b]||(this.cssnamemap[b]=1,d=document.createElement("link"),d.type="text/css",d.href=a,d.rel="stylesheet",d.onload=d.onerror=c,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(d,e))},lsloader.runInlineScript=function(a,b){var c=document.getElementById(b).innerText;this.jsRunSequence.push({name:a,code:c}),this.runjs()},lsloader.css=function(a,b){"undefined"==typeof window.lsLoadCSSMaxNums&&(window.lsLoadCSSMaxNums=0),window.lsLoadCSSMaxNums++,lsloader.load(a,b,function(){"undefined"==typeof window.lsLoadCSSNums&&(window.lsLoadCSSNums=0),window.lsLoadCSSNums++,window.lsLoadCSSNums==window.lsLoadCSSMaxNums&&(document.documentElement.style.display="")},!1)},lsloader.js=function(a,b){lsloader.load(a,b,!0)}}();</script>
+<!-- Import queue -->
+<script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+<!-- Import CSS -->
+<style id="spectre_css"></style><script>lsloader.css("spectre_css","/libs/spectre/spectre.min.css")</script>
+<style id="spectre_exp_css"></style><script>lsloader.css("spectre_exp_css","/libs/spectre/spectre-exp.min.css")</script>
+<style id="style_css"></style><script>lsloader.css("spectre_exp_css","/css/style.min.css")</script>
+<style id="prism_css"></style><script>lsloader.css("prism_css","/css/prism.min.css")</script>
+
+
+    <!-- Site Verification -->
+    
+
+
+    <!-- RSS -->
+    
+    
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    
+
+
+    <!-- The Open Graph & Twitter Card Protocol -->
+    
+
+<meta property="og:title" content="全新安装 Ubuntu 18.04 | KIKOのSPACE">
+<meta property="og:type" content="blog">
+<meta property="og:url" content="https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/">
+<meta property="og:image" content="https://i.loli.net/2018/10/28/5bd59ce53dafa.png">
+<meta property="og:description" content="首先打开「清华大学镜像站」，获取 Ubuntu 的国内镜像地址。不要问我为什么用清华镜像源，因为主页看起来很可口漂亮，速度比较快。">
+<meta property="og:article:tag" content="linux"> 
+
+
+    <meta property="article:published_time" content="Wed Sep 19 2018 16:51:00 GMT+0800">
+    <meta property="article:modified_time" content="Sun Oct 28 2018 19:26:44 GMT+0800">
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+    <meta property="twitter:site" content="https://twitter.com/twitter">
+    <meta property="twitter:creator" content="twitter">
+
+
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/">
+
+    <!-- Structured Data -->
+    
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.kiko.space"
+    },
+    "headline": "全新安装 Ubuntu 18.04",
+    
+    "image": "https://i.loli.net/2018/10/28/5bd59ce53dafa.png",
+    
+    "datePublished": "2018-09-19T08:51:00.000Z",
+    "dateModified": "2018-10-28T11:26:44.742Z",
+    "author": {
+        "@type": "Person",
+        "name": "Anapopo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "KIKOのSPACE",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",linux",
+    "description": "首先打开「清华大学镜像站」，获取 Ubuntu 的国内镜像地址。不要问我为什么用清华镜像源，因为主页看起来很可口漂亮，速度比较快。"
+}
+</script>
+
+
+    <!-- Custom Head -->
+
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+    
+
+    <body>
+        <div class="off-canvas off-canvas-sidebar-show">
+            <!-- off-screen toggle button -->
+            <a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar">
+                <i class="icon material-icons casino-icons">menu</i>
+            </a>
+
+            <div id="sidebar" class="off-canvas-sidebar">
+                <div id="sidebar-content">
+                    <ul class="nav">
+<a class="off-canvas-toggle btn btn-link btn-action" href="#close">
+    <i class="icon material-icons casino-icons">arrow_back</i>
+</a>
+<div class="sidebar-top"></div>
+<span class="h4 text-center">KIKOのSPACE</span>
+<div class="divider"></div>
+    <!-- Homepage -->
+    
+        <li class="nav-item">
+            <a href="/">
+                
+                    <i class="icon material-icons sidebar-icons">home</i>
+                
+            主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives -->
+    
+        <li class="nav-item">
+            <a href="/archives/">
+                
+                    <i class="icon material-icons sidebar-icons">inbox</i>
+                
+            归档
+            </a>
+        </li>
+        
+    
+
+    <!-- Search -->
+    <!---->
+
+    <!-- Pages  -->
+    
+        <li class="nav-item">
+            <a href="/about">
+                
+                    <i class="icon material-icons sidebar-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="/tags.html">
+                
+                    <i class="icon material-icons sidebar-icons">bookmark</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="/links.html">
+                
+                    <i class="icon material-icons sidebar-icons">people</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="https://wiki.kiko.space">
+                
+                    <i class="icon material-icons sidebar-icons">polymer</i>
+                
+                维基
+            </a>
+        </li>
+        
+            <div class="divider"></div>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li class="nav-item">
+            <a href="/archives/" style="display: flex">
+                文章总数
+                <div style="flex-grow: 1;padding-left: 1rem!important"></div>
+                <span class="sidebar-badge">16</span>
+            </a>
+        </li>
+        
+    
+
+</ul>
+
+
+                </div>
+            </div>
+
+            <a class="off-canvas-overlay" href="#close"></a>
+
+            <div class="off-canvas-content">
+                <main>
+                    <!-- Layouts -->
+
+    <!-- Post Moudule -->
+    <div class="container container-post">
+    <div class="card post-card col-mx-auto">
+        
+            <div class="card-image" style="background-image: url('https://i.loli.net/2018/10/28/5bd59ce53dafa.png');"></div>
+        
+        <div class="card-header">
+            <div class="card-header-title">
+                <div class="card-title h4">全新安装 Ubuntu 18.04</div>
+            </div>
+            <div class="divider"></div>
+            <div>
+                <!-- Category -->
+                
+                <!-- Post Tags -->
+                
+                    <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/linux/">linux</a></li></ul>
+                
+            </div>
+        </div>
+        <br>
+        <div id="post-content" class="card-body">
+            <p>首先打开<a href="https://mirrors4.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">「清华大学镜像站」</a>，获取 Ubuntu 的国内镜像地址。不要问我为什么用清华镜像源，因为主页看起来很<del>可口</del>漂亮，速度比较快。</p>
+<a id="more"></a>
+<p>然后编辑 <code>/etc/apt/sources.list</code> 用以下内容替换原有内容。</p>
+<p><img src="https://i.loli.net/2018/09/19/5ba1ed9c35a39.png" alt=""></p>
+<h3 id="0、安装基本组件"><a href="#0、安装基本组件" class="headerlink" title="0、安装基本组件"></a>0、安装基本组件</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> apt upgrade
+<span class="token function">sudo</span> apt <span class="token function">install</span> <span class="token function">git</span> curl vim zsh fcitx gnome-session gnome-tweak-tool
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>然后是配置 ZSH 的一系列组件，这里先附上三个项目地址，下面会<del>用到</del>看到它们的名字：</p>
+<ul>
+<li><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a></li>
+<li><a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank" rel="noopener">zsh-syntax-highlighting</a></li>
+<li><a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></li>
+</ul>
+<p>当前状态是刚装完 <code>zsh</code>，什么都还没做，如果当前默认 Shell 不是 <code>zsh</code> 的话，可以通过 <code>chsh</code> 命令来指定当前用户的默认 Shell。</p>
+<p>依次执行官方提供的三个脚本：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 这个安装 oh-my-zsh 到你的 `~/.oh-my-zsh` 目录</span>
+sh -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="token variable">)</span></span>"</span>
+
+<span class="token comment" spellcheck="true"># 这个安装命令自动补全插件</span>
+<span class="token function">git</span> clone https://github.com/zsh-users/zsh-autosuggestions <span class="token variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-autosuggestions
+
+<span class="token comment" spellcheck="true"># 这个安装语法自动高亮插件</span>
+<span class="token function">git</span> clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="token variable">${ZSH_CUSTOM:-~/.oh-my-zsh/custom}</span>/plugins/zsh-syntax-highlighting
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>等待安装完毕以后，打开你的 <code>.zshrc</code> 文件，修改如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">plugins<span class="token operator">=</span><span class="token punctuation">(</span>
+  <span class="token function">git</span>
+  zsh-autosuggestions
+  zsh-syntax-highlighting <span class="token comment" spellcheck="true"># 这个一定要在最后一行</span>
+<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后重新登录即可生效，不过我一般都是 <code>source .zshrc</code> 直接生效。</p>
+<h3 id="1、配置搜狗输入法"><a href="#1、配置搜狗输入法" class="headerlink" title="1、配置搜狗输入法"></a>1、配置搜狗输入法</h3><p>首先确保 <code>fcitx</code>安装成功，可以先执行 <code>fcitx-diagnose</code> 查看下当前的状态。<br>然后前往搜狗输入法官网 <a href="https://pinyin.sogou.com/linux/" target="_blank" rel="noopener">戳我</a> 下载 deb 包，最后双击安装。</p>
+<p><img src="https://i.loli.net/2018/09/19/5ba1eec212e57.png" alt=""></p>
+<p>接下来是配置部分：<br>(1)、在普通的使用 <code>Xorg</code> 协议的 Gnome 上</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 编辑 ~/.xprofile 没有就创建一个</span>
+GTK_IM_MODULE<span class="token operator">=</span>fcitx
+QT_IM_MODULE<span class="token operator">=</span>fcitx
+XMODIFIERS<span class="token operator">=</span>@im<span class="token operator">=</span>fcitx
+<span class="token comment" spellcheck="true"># fcitx 的自启动</span>
+fcitx <span class="token operator">&amp;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>(2)、在使用了 <code>Wayland</code> 协议的 Gnome 上</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 由于 Wayland 协议无法读取 `.xprofile` 文件，所以编辑 `/etc/environment` 文件</span>
+<span class="token comment" spellcheck="true"># 原来的此处应该有定义 PATH 变量，不要去改变它。</span>
+GTK_IM_MODULE<span class="token operator">=</span>fcitx
+QT_IM_MODULE<span class="token operator">=</span>fcitx
+XMODIFIERS<span class="token operator">=</span>@im<span class="token operator">=</span>fcitx
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>关于 <code>fcitx</code> 的自启动，把 <code>/usr/share/fcitx/xdg/autostart/fcitx-autostart.desktop</code> 文件拷贝至 <code>/etc/xdg/autostart</code>下即可。</p>
+<p>[<em>可选项] 由于使用了 <code>fcitx</code>，具有强迫症的话可以执行 <code>sudo apt purge ibus</code> 把自带的 <code>ibus</code>卸载。<br>[</em>可选项] 可以使用搜狗输入法的所有皮肤（除动态皮肤以外），所以去官网挑一个喜欢的皮肤下载后双击安装即可。推荐 <a href="https://pinyin.sogou.com/skins/detail/view/info/559973" target="_blank" rel="noopener">柔兰</a></p>
+<h3 id="2、安装常用软件"><a href="#2、安装常用软件" class="headerlink" title="2、安装常用软件"></a>2、安装常用软件</h3><p>有很多软件都是跨平台的，跨平台的技术大概有 <code>Electron</code>、<code>Qt</code>、<code>AppImage</code>等等。<br>需要什么软件，只要通过 <code>&lt;软件名&gt; + Linux</code> 关键词去搜索引擎找一找就可以了。</p>
+<p>我安装了 <code>Visual Studio Code</code>、<code>Telegram</code>、<code>Typora</code> 这三款。<br>其中 <code>VSCode</code>可以在官网下载到 deb 包，而在 Ubuntu 官方软件仓库中的<code>Telegram</code> 采用了 <code>snap</code> 技术。我尝试安装了 N 次都失败了，所以去官网下载了二进制包，写个 <code>DesktopEntry</code> 丢进 <code>~/.local/share/applications/</code> 就直接拿来用了。</p>
+<p><code>DesktopEntry</code> 一并附上，来源 <a href="https://i-meto.com/telegram-ibus/" target="_blank" rel="noopener">@METO</a>，在此感谢~<br>文件名 ：<code>telegramdesktop.desktop</code></p>
+<pre><code>[Desktop Entry]
+Version=1.0
+Name=Telegram Desktop
+Comment=Official desktop application for the Telegram messaging service
+TryExec=/opt/Telegram/Telegram
+Exec=/opt/Telegram/Telegram -- %u
+Icon=telegram
+Terminal=false
+StartupWMClass=TelegramDesktop
+Type=Application
+Categories=Network;InstantMessaging;Qt;
+MimeType=x-scheme-handler/tg;
+X-Desktop-File-Install-Version=0.23
+</code></pre><p><code>Typora</code>是一款很棒的 MarkDown 写作软件，安装步骤也比较简单，只要添加软件源后 <code>sudo apt install typora</code> 就好了。</p>
+<h3 id="3、配置科学上网环境"><a href="#3、配置科学上网环境" class="headerlink" title="3、配置科学上网环境"></a>3、配置科学上网环境</h3><h4 id="其一（electron-ssr）："><a href="#其一（electron-ssr）：" class="headerlink" title="其一（electron-ssr）："></a>其一（electron-ssr）：</h4><p>在 Ubuntu下较好的科学上网方式除了普通的 <code>ShadowsocksR-libev</code>、 <code>Shadowsocks-Qt</code> 和 <code>Python</code> 方式，还可以采用 <code>electron-ssr</code>这个项目，在 Release 界面有提供 deb 包，甚至还有 ArchLinux 的 pacman 包。</p>
+<p>界面如下图：<br><img src="https://i.loli.net/2018/09/19/5ba1f614e89a6.png" alt=""></p>
+<p>由于 <code>electron-ssr</code> 采用 Python 作为后端，所以在启动 <code>electron-ssr</code> 之前，要确保 Python 环境配置好。如果系统中没有 <code>python</code> 命令的话，程序是可以打开，但是没有任何报错（终端启动可以看到报错），使用 <code>netstat -lntp</code> 查看也没有 <code>1080</code> 端口被打开。</p>
+<p>首先查看 <code>python</code> 命令是否存在，不存在就先执行 <code>sudo ln /usr/bin/python3 /usr/bin/python</code>，这里我用一个软链接把 <code>python3</code> 链接到 <code>python</code> 上，这样的话系统查找 <code>python</code> 的时候就直接可以使用 <code>python3</code> 。</p>
+<p>打开 <code>electron-ssr</code> 选择不启用代理后，可以 使用 <code>netstat -lntp</code> 查看到 1080 端口已经打开，这是一种 <code>socks5</code> 代理，代理地址为 <code>127.0.0.1:1080</code>。</p>
+<p>[巧合？] 我在测试启动的时候提示找不到 <code>canberra-gtk-module</code>，遂安装 <code>libcanberra-gtk-module</code>解决。<br>[小提示] 使用 netstat 命令之前需要先安装 <code>net-tools</code> 软件包。<br>[*可选项] 搭配浏览器拓展 <code>SwitchyOmega</code> 可以获得更加精准的流量转发。</p>
+<h4 id="其二（proxychains-ng）："><a href="#其二（proxychains-ng）：" class="headerlink" title="其二（proxychains-ng）："></a>其二（proxychains-ng）：</h4><p>这种方案更加适用于终端，首先准备编译环境 <code>sudo apt install build-essential</code><br>打开<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="noopener">项目主页</a>，把源码通过 <code>git clone</code> 或是直接下载压缩包至本地并解压。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> proxychains-ng
+./configure --prefix<span class="token operator">=</span>/usr --sysconfdir<span class="token operator">=</span>/etc
+<span class="token function">sudo</span> <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">install</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> install-config
+<span class="token function">sudo</span> <span class="token function">make</span> clean
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行完毕后可以发现库文件、二进制文件和配置文件都已经各就各位。这，就是 Unix 哲学。</p>
+<ul>
+<li>/usr/lib/libproxychains4.so</li>
+<li>/usr/bin/proxychains4</li>
+<li>/etc/proxychains.conf</li>
+</ul>
+<p>接着修改配置文件 <code>sudo vim /etc/proxychains.conf</code>（忘记 sudo 赶紧退出来，别编辑了），来到最后一行。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 可以使用多种代理，程序会逐行尝试，改成下面的代理地址并保存</span>
+<span class="token punctuation">[</span>ProxyList<span class="token punctuation">]</span>
+socks5 127.0.0.1 1080
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>现在可以通过 <code>proxychains4 &lt;需要代理的命令&gt;</code> 来使用代理，举个例子 <code>proxychains4 curl https://www.google.com</code>，不出意外可以看到一堆文字。</p>
+<p>Q: 那么老师能不能给力一点啊？<br>A: 再懒一点的话可把 <code>alias ssr=&#39;proxychains4&#39;</code>写入你的  .bashrc 或是 .zshrc 文件里，使用 <code>ssr curl https://www.google.com</code></p>
+<p>Q: 那么老师能不能再给力一点啊？<br>A: 使用 <code>proxychains4 -q /bin/zsh</code> 命令绑定一个 Shell，这样在新打开的 Shell 里面执行任何命令都是通过代理的。</p>
+<p>Q: 那么老师……<br>A: 好了好了，你去吧。</p>
+<h4 id="其三（ShadowsocksR-libev）"><a href="#其三（ShadowsocksR-libev）" class="headerlink" title="其三（ShadowsocksR-libev）:"></a>其三（ShadowsocksR-libev）:</h4><h3 id="4、配置-GPG-和-SSH"><a href="#4、配置-GPG-和-SSH" class="headerlink" title="4、配置 GPG 和 SSH"></a>4、配置 GPG 和 SSH</h3><p>首先导入 GPG 公钥和私钥，然后设为绝对信任（什么？连自己的公钥都不设绝对信任是人吗？）</p>
+<pre class="line-numbers language-bash"><code class="language-bash">gpg --import <span class="token operator">&lt;</span>path/to/your/public_gpg_key<span class="token operator">></span> <span class="token operator">&lt;</span>path/to/your/secret_gpg_key<span class="token operator">></span>
+<span class="token comment" spellcheck="true"># 接下来绝对信任自己的公钥</span>
+gpg --edit-key <span class="token operator">&lt;</span>公钥ID<span class="token operator">></span>
+gpg<span class="token operator">></span> trust
+<span class="token comment" spellcheck="true"># 选择绝对信任</span>
+gpg<span class="token operator">></span> quit
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>创建 <code>~/.ssh</code> 文件夹，把自己的 SSH 私钥丢进去，通通 <code>chmod 600</code> 确保安全（不执行的话，连服务器会被拒）<br>然后创建 <code>config</code> 文件，按照下面的格式写入配置</p>
+<pre class="line-numbers language-bash"><code class="language-bash">HostName b <span class="token comment" spellcheck="true"># 配置完毕就可以 使用 `ssh b` 连接主机了</span>
+Host ssh.baidu.com <span class="token comment" spellcheck="true"># 你的主机地址</span>
+User li <span class="token comment" spellcheck="true"># 你的主机用户名</span>
+Port 22 <span class="token comment" spellcheck="true"># 一般是22，不写默认也是22</span>
+IdentityFile <span class="token operator">&lt;</span>path/to/your/ssh_secret_key<span class="token operator">></span> <span class="token comment" spellcheck="true"># 指向你的私钥</span>
+
+<span class="token comment" spellcheck="true"># 再来一个 Github 的</span>
+Host github.com
+User <span class="token function">git</span>
+IdentityFile ~/.ssh/Git_Anapopo
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后是配置 git，由于直接敲指令太麻烦，所以我一般都是事先备份好 <code>dotfiles</code>，然后安装的时候直接软链接，<br>这里直接对 Commits 开启了 GPG 签名，以确保 Commits 确实是我本人提交的（虽然感觉没有人会冒充我，还给我提交Commits QAQ）。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 创建 `~/.gitconfig` 文件</span>
+<span class="token punctuation">[</span>user<span class="token punctuation">]</span>
+    email <span class="token operator">=</span> <span class="token operator">&lt;</span>your_email<span class="token operator">></span>
+    name <span class="token operator">=</span> <span class="token operator">&lt;</span>your_name<span class="token operator">></span>
+    signingkey <span class="token operator">=</span> <span class="token operator">&lt;</span>your_short_key_id<span class="token operator">></span>
+<span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+    gpgsign <span class="token operator">=</span> <span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5、配置主题环境"><a href="#5、配置主题环境" class="headerlink" title="5、配置主题环境"></a>5、配置主题环境</h3><p>首先创建用户本地主题文件夹 <code>~/.themes</code>、<code>~/.icons</code>，然后打开 Gnome-Look <a href="https://www.gnome-look.org/browse/cat/135/ord/latest/" target="_blank" rel="noopener">官网</a>，挑选你喜欢的主题、图标、光标等，把它下载下来解压。主题<strong>文件夹</strong>丢进 <code>~/.themes</code>，光标和图标<strong>文件夹</strong>丢进 <code>~/.icons</code>里面。</p>
+<p><img src="https://i.loli.net/2018/09/19/5ba20495190fe.png" alt=""></p>
+<p>然后运行 <code>gnome-tweaks</code> 命令开主题设置，选择需要的主题。</p>
+<p><img src="https://i.loli.net/2018/09/19/5ba2058c86c1e.png" alt=""></p>
+<p>最后，大功告成，享受 Ubuntu 带来的快乐吧~（重装了两次，双份的快乐。）</p>
+<p><img src="https://i.loli.net/2018/09/19/5ba2071ee106e.jpg" alt=""></p>
+
+            
+    <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+        <p>
+            <strong>本文作者：Anapopo</strong>
+            <br>
+            <strong>
+             
+                本文采用 <a rel="nofollow noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC BY-NC-SA 3.0 Unported</a> 协议进行许可，阅读 <a href="/creativecommons.html" target="_blank">相关说明</a>
+            </strong>
+            <br>
+            <strong>本文链接：</strong><a href="https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/">https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/</a>
+        </p>
+    </blockquote>
+
+        </div>
+        <div class="post-footer-info bg-gray">
+            <figure class="avatar centered">
+    <img src="/img/avatar.png">
+</figure>
+<section class="post-footer-date">
+    <p class="card-subtitle text-gray mb-0">Publish: 9月 19, 2018
+        
+            <br>Update: 10月 28, 2018
+        
+    </p>
+</section>
+<section class="post-footer-action">
+    <!-- Post Share -->
+    <div class="dropdown dropdown-right float-right">
+<a class="btn btn-link btn-gray dropdown-toggle" tabindex="0"><i class="icon material-icons casino-icons">share</i></a>
+<ul class="menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=全新安装 Ubuntu 18.04&url=https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/index.html&pic=https://blog.kiko.space/img/favicon.png&searchPic=false&style=simple" target="_blank">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=全新安装 Ubuntu 18.04&url=https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/index.html&via=Anapopo" target="_blank">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/index.html" target="_blank">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+</ul>
+</div>
+    <!-- Post Qrcoe -->
+    
+</section>
+
+        </div>
+        <div class="divider m-0"></div>
+        <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2018/11/24/windows-and-cmake-compile-opencv/">
+                <div class="page-item-title h5"><i class="icon material-icons casino-icons">arrow_back</i></div>
+                <div class="page-item-subtitle">Windows 编译 OpenCV</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/08/12/fix-typora-segmentation-fault/">
+                <div class="page-item-title h5"><i class="icon material-icons casino-icons">arrow_forward</i></div>
+                <div class="page-item-subtitle">修复 Arch Linux 下 Typora 段错误</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+        
+            <div class="card-footer">
+                <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="btn btn-primary disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://blog.kiko.space/2018/09/19/install-ubuntu-18.04/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://disqus.com/next/config.json', true);
+    xhr.timeout = 4000;
+    xhr.send();
+    xhr.onload = function() {
+        if(this.status == 200||this.status == 304){
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//kikospace.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            document.querySelector(".disqus_click_btn").setAttribute("style", "display:none")
+        }
+    };
+    xhr.ontimeout = function(e) {
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:block");
+    };
+    xhr.onerror = function(e) {
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:block");
+    };
+    document.querySelector(".disqus_click_btn").onclick=function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//kikospace.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:none")
+    };
+</script>
+
+            </div>
+        
+    </div>
+
+</div>
+
+
+                </main>
+                <footer class="centered">
+    <div class="footer-content">
+        <div class="footer-sns-list">
+            <!-- Twitter -->
+
+    <a href="https://twitter.com/twitter" target="_blank">
+        <button class="footer-sns-btn footer-sns-twitter"></button></a>
+
+
+<!-- Facebook -->
+
+    <a href="https://www.facebook.com/facebook" target="_blank">
+        <button class="footer-sns-btn footer-sns-facebook"></button></a>
+
+
+<!-- Google + -->
+
+
+<!-- Weibo -->
+
+
+<!-- Instagram -->
+
+
+<!-- Tumblr -->
+
+
+<!-- Github -->
+
+    <a href="https://github.com/anapopo" target="_blank">
+        <button class="footer-sns-btn footer-sns-github"></button></a>
+
+
+<!-- LinkedIn -->
+
+
+<!-- Zhihu -->
+
+
+<!-- Bilibili -->
+
+
+<!-- Telegram -->
+
+
+<!-- V2EX -->
+
+
+<!-- Segmentfault -->
+
+        </div>
+        <div class="footer-copyright">Copyright&nbsp;©&nbsp;<span year=""></span>
+            <a href="https://blog.kiko.space">KIKOのSPACE</a>
+        </div>
+        <div class="footer-develop">
+            <div>Powered by
+                <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+            </div>
+            <div>Theme -
+                <a href="https://github.com/neoFelhz/hexo-theme-spectre" target="_blank" class="footer-develop-a">Spectre</a>
+            </div>
+        </div>
+    </div>
+</footer>
+                <div class="back-to-top rounded">
+    <a href="#"><i class="icon material-icons casino-icons">expand_less</i></a>
+</div>
+            </div>
+        </div>
+        <!-- Import JS -->
+<script>lsloader.js("lazy_js","/libs/js/lazyload.min.js")</script>
+
+<!-- Comment -->
+
+    <!-- 使用 DISQUS js 代码 -->
+
+ 
+
+<script type="text/ls-javascript" id="lazy-load">
+    var myLazyLoad = new LazyLoad({
+        elements_selector: ".lazy"
+    });
+    // Start Queue
+    window.onload = function() {
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    };
+</script>
+<script type="text/javascript">
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+    
+        copyrightSince = 2017;
+            if (copyrightSince === copyrightNow) {
+            textContent.textContent = copyrightNow
+        } else {
+            textContent.textContent = copyrightSince + ' - ' + copyrightNow
+        }
+    
+</script>
+
+<!-- Console log -->
+<script>
+    !function(){for(var e=document.querySelectorAll('script[type="text/ls-javascript"]'),r=0;r<e.length;++r){var o=e[r];lsloader.runInlineScript(o.id,o.id)}}(),
+    console.log(" \n %c Spectre Theme | © neoFelhz | Verision 0.1.1 %c https://github.com/neoFelhz/hexo-theme-spectre ", "color: #fff; background-image: linear-gradient(90deg, rgb(236, 61, 1213) 0%, rgb(94, 108, 198) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(94, 108, 198) 0%, rgb(194, 194, 194) 0%); padding:5px 0;");
+</script>
+    </body>
+
+    
+
+</html>

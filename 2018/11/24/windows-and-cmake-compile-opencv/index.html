@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+
+<html style="display:none">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <!--
+        © neoFelhz
+        GitHub: https://github.com/neoFelhz/hexo-theme-spectre
+        Version: 0.1.1
+    -->
+    <script>
+        window.materialVersion = "0.1.1",
+        window.oldVersion = [
+            
+                
+                    "0.1.0"
+                
+            
+        ]
+    </script>
+
+    <!-- DNS Prefetch -->
+    
+
+    <!-- Meta & Title & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<!-- Title -->
+
+<title>Windows 编译 OpenCV | KIKOのSPACE</title>
+
+<!-- Favicons -->
+<link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+<link rel="icon" href="/img/favicon.png">
+
+<meta name="format-detection" content="telephone=no">
+<meta name="description" itemprop="description" content="由于课程需要，要在 Windows 下编译一个支持 OpenGL 的 OpenCV 旧版本。这里简单地做个总结，以便以后参阅。">
+<meta name="keywords" content=",cmake,opencv">
+<meta name="theme-color" content="#0097A7">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+    <!-- Import File -->
+    <!-- Import Lsloader -->
+<script>!function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}},lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}},lsloader.setLS=function(a,b){try{localStorage.setItem(a,b)}catch(c){}},lsloader.getLS=function(a){var b="";try{b=localStorage.getItem(a)}catch(c){b=""}return b},versionString="/*"+(window.materialVersion||"unknownVersion")+"*/",lsloader.clean=function(){var a,b;try{for(a=[],b=0;b<localStorage.length;b++)a.push(localStorage.key(b));a.forEach(function(a){var c,b=lsloader.getLS(a);window.oldVersion&&(c=window.oldVersion.reduce(function(a,c){return a||-1!==b.indexOf("/*"+c+"*/")},!1),c&&lsloader.removeLS(a))})}catch(c){}},lsloader.clean(),lsloader.load=function(a,b,c,d){var e,f;if("boolean"==typeof c&&(d=c,c=void 0),d=d||!1,c=c||function(){},e=this.getLS(a),e&&-1===e.indexOf(versionString))return this.removeLS(a),this.requestResource(a,b,c,d),void 0;if(e){if(f=e.split(versionString)[0],f!=b)return console.log("reload:"+b),this.removeLS(a),this.requestResource(a,b,c,d),void 0;e=e.split(versionString)[1],d?(this.jsRunSequence.push({name:a,code:e}),this.runjs(b,a,e)):(document.getElementById(a).appendChild(document.createTextNode(e)),c())}else this.requestResource(a,b,c,d)},lsloader.requestResource=function(a,b,c,d){var e=this;d?this.iojs(b,a,function(a,b,c){e.setLS(b,a+versionString+c),e.runjs(a,b,c)}):this.iocss(b,a,function(c){document.getElementById(a).appendChild(document.createTextNode(c)),e.setLS(a,b+versionString+c)},c)},lsloader.iojs=function(a,b,c){var e,d=this;d.jsRunSequence.push({name:b,code:""});try{e=new XMLHttpRequest,e.open("get",a,!0),e.onreadystatechange=function(){if(4==e.readyState){if((e.status>=200&&e.status<300||304==e.status)&&""!=e.response)return c(a,b,e.response),void 0;d.jsfallback(a,b)}},e.send(null)}catch(f){d.jsfallback(a,b)}},lsloader.iocss=function(a,b,c,d){var f,e=this;try{f=new XMLHttpRequest,f.open("get",a,!0),f.onreadystatechange=function(){if(4==f.readyState){if((f.status>=200&&f.status<300||304==f.status)&&""!=f.response)return c(f.response),d(),void 0;e.cssfallback(a,b,d)}},f.send(null)}catch(g){e.cssfallback(a,b,d)}},lsloader.iofonts=function(a,b,c,d){var f,e=this;try{f=new XMLHttpRequest,f.open("get",a,!0),f.onreadystatechange=function(){if(4==f.readyState){if((f.status>=200&&f.status<300||304==f.status)&&""!=f.response)return c(f.response),d(),void 0;e.cssfallback(a,b,d)}},f.send(null)}catch(g){e.cssfallback(a,b,d)}},lsloader.runjs=function(a,b,c){var d,e,f;if(b&&c)for(d in this.jsRunSequence)this.jsRunSequence[d].name==b&&(this.jsRunSequence[d].code=c);this.jsRunSequence[0]&&this.jsRunSequence[0].code&&"failed"!=this.jsRunSequence[0].status?(e=document.createElement("script"),e.appendChild(document.createTextNode(this.jsRunSequence[0].code)),e.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(e),this.jsRunSequence.shift(),this.jsRunSequence.length>0&&this.runjs()):this.jsRunSequence[0]&&"failed"==this.jsRunSequence[0].status&&(f=this,e=document.createElement("script"),e.src=this.jsRunSequence[0].path,e.type="text/javascript",this.jsRunSequence[0].status="loading",e.onload=function(){f.jsRunSequence.shift(),f.jsRunSequence.length>0&&f.runjs()},document.body.appendChild(e))},lsloader.tagLoad=function(a,b){this.jsRunSequence.push({name:b,code:"",path:a,status:"failed"}),this.runjs()},lsloader.jsfallback=function(a,b){if(!this.jsnamemap[b]){this.jsnamemap[b]=b;for(var c in this.jsRunSequence)this.jsRunSequence[c].name==b&&(this.jsRunSequence[c].code="",this.jsRunSequence[c].status="failed",this.jsRunSequence[c].path=a);this.runjs()}},lsloader.cssfallback=function(a,b,c){var d,e;this.cssnamemap[b]||(this.cssnamemap[b]=1,d=document.createElement("link"),d.type="text/css",d.href=a,d.rel="stylesheet",d.onload=d.onerror=c,e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(d,e))},lsloader.runInlineScript=function(a,b){var c=document.getElementById(b).innerText;this.jsRunSequence.push({name:a,code:c}),this.runjs()},lsloader.css=function(a,b){"undefined"==typeof window.lsLoadCSSMaxNums&&(window.lsLoadCSSMaxNums=0),window.lsLoadCSSMaxNums++,lsloader.load(a,b,function(){"undefined"==typeof window.lsLoadCSSNums&&(window.lsLoadCSSNums=0),window.lsLoadCSSNums++,window.lsLoadCSSNums==window.lsLoadCSSMaxNums&&(document.documentElement.style.display="")},!1)},lsloader.js=function(a,b){lsloader.load(a,b,!0)}}();</script>
+<!-- Import queue -->
+<script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+<!-- Import CSS -->
+<style id="spectre_css"></style><script>lsloader.css("spectre_css","/libs/spectre/spectre.min.css")</script>
+<style id="spectre_exp_css"></style><script>lsloader.css("spectre_exp_css","/libs/spectre/spectre-exp.min.css")</script>
+<style id="style_css"></style><script>lsloader.css("spectre_exp_css","/css/style.min.css")</script>
+<style id="prism_css"></style><script>lsloader.css("prism_css","/css/prism.min.css")</script>
+
+
+    <!-- Site Verification -->
+    
+
+
+    <!-- RSS -->
+    
+    
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+    
+
+
+    <!-- The Open Graph & Twitter Card Protocol -->
+    
+
+<meta property="og:title" content="Windows 编译 OpenCV | KIKOのSPACE">
+<meta property="og:type" content="blog">
+<meta property="og:url" content="https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/">
+<meta property="og:image" content="https://i.loli.net/2018/11/24/5bf951a5e217e.png">
+<meta property="og:description" content="由于课程需要，要在 Windows 下编译一个支持 OpenGL 的 OpenCV 旧版本。这里简单地做个总结，以便以后参阅。">
+<meta property="og:article:tag" content="cmake"> <meta property="og:article:tag" content="opencv"> 
+
+
+    <meta property="article:published_time" content="Sat Nov 24 2018 21:29:17 GMT+0800">
+    <meta property="article:modified_time" content="Sat Nov 24 2018 21:37:51 GMT+0800">
+
+
+<meta name="twitter:card" content="summary_large_image">
+
+    <meta property="twitter:site" content="https://twitter.com/twitter">
+    <meta property="twitter:creator" content="twitter">
+
+
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/">
+
+    <!-- Structured Data -->
+    
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.kiko.space"
+    },
+    "headline": "Windows 编译 OpenCV",
+    
+    "image": "https://i.loli.net/2018/11/24/5bf951a5e217e.png",
+    
+    "datePublished": "2018-11-24T13:29:17.000Z",
+    "dateModified": "2018-11-24T13:37:51.738Z",
+    "author": {
+        "@type": "Person",
+        "name": "Anapopo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "KIKOのSPACE",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",cmake,opencv",
+    "description": "由于课程需要，要在 Windows 下编译一个支持 OpenGL 的 OpenCV 旧版本。这里简单地做个总结，以便以后参阅。"
+}
+</script>
+
+
+    <!-- Custom Head -->
+
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+    
+
+    <body>
+        <div class="off-canvas off-canvas-sidebar-show">
+            <!-- off-screen toggle button -->
+            <a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar">
+                <i class="icon material-icons casino-icons">menu</i>
+            </a>
+
+            <div id="sidebar" class="off-canvas-sidebar">
+                <div id="sidebar-content">
+                    <ul class="nav">
+<a class="off-canvas-toggle btn btn-link btn-action" href="#close">
+    <i class="icon material-icons casino-icons">arrow_back</i>
+</a>
+<div class="sidebar-top"></div>
+<span class="h4 text-center">KIKOのSPACE</span>
+<div class="divider"></div>
+    <!-- Homepage -->
+    
+        <li class="nav-item">
+            <a href="/">
+                
+                    <i class="icon material-icons sidebar-icons">home</i>
+                
+            主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives -->
+    
+        <li class="nav-item">
+            <a href="/archives/">
+                
+                    <i class="icon material-icons sidebar-icons">inbox</i>
+                
+            归档
+            </a>
+        </li>
+        
+    
+
+    <!-- Search -->
+    <!---->
+
+    <!-- Pages  -->
+    
+        <li class="nav-item">
+            <a href="/about">
+                
+                    <i class="icon material-icons sidebar-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="/tags.html">
+                
+                    <i class="icon material-icons sidebar-icons">bookmark</i>
+                
+                标签
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="/links.html">
+                
+                    <i class="icon material-icons sidebar-icons">people</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li class="nav-item">
+            <a href="https://wiki.kiko.space">
+                
+                    <i class="icon material-icons sidebar-icons">polymer</i>
+                
+                维基
+            </a>
+        </li>
+        
+            <div class="divider"></div>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li class="nav-item">
+            <a href="/archives/" style="display: flex">
+                文章总数
+                <div style="flex-grow: 1;padding-left: 1rem!important"></div>
+                <span class="sidebar-badge">16</span>
+            </a>
+        </li>
+        
+    
+
+</ul>
+
+
+                </div>
+            </div>
+
+            <a class="off-canvas-overlay" href="#close"></a>
+
+            <div class="off-canvas-content">
+                <main>
+                    <!-- Layouts -->
+
+    <!-- Post Moudule -->
+    <div class="container container-post">
+    <div class="card post-card col-mx-auto">
+        
+            <div class="card-image" style="background-image: url('https://i.loli.net/2018/11/24/5bf951a5e217e.png');"></div>
+        
+        <div class="card-header">
+            <div class="card-header-title">
+                <div class="card-title h4">Windows 编译 OpenCV</div>
+            </div>
+            <div class="divider"></div>
+            <div>
+                <!-- Category -->
+                
+                <!-- Post Tags -->
+                
+                    <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/cmake/">cmake</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/opencv/">opencv</a></li></ul>
+                
+            </div>
+        </div>
+        <br>
+        <div id="post-content" class="card-body">
+            <p>由于课程需要，要在 Windows 下编译一个支持 OpenGL 的 OpenCV 旧版本。<br>这里简单地做个总结，以便以后参阅。</p>
+<a id="more"></a>
+<h3 id="0x0-准备工作"><a href="#0x0-准备工作" class="headerlink" title="0x0 准备工作"></a>0x0 准备工作</h3><h4 id="编译环境"><a href="#编译环境" class="headerlink" title="# 编译环境"></a># <strong>编译环境</strong></h4><ul>
+<li>Windows 10 1809</li>
+<li>CMake 3.13.0</li>
+<li>OpenCV 2.4.13.6-vc14</li>
+<li>Visual Stuido 2017</li>
+</ul>
+<h4 id="安装CMake"><a href="#安装CMake" class="headerlink" title="# 安装CMake"></a># <strong>安装CMake</strong></h4><p>首先需要安装 CMake，进入官网下载安装包，优先选择 <a href="https://github.com/Kitware/CMake/releases/download/v3.13.0/cmake-3.13.0-win64-x64.msi" target="_blank" rel="noopener">cmake-3.13.0-win64-x64.msi</a>，安装完成后可以在开始菜单中找到 <code>cmake-gui</code>。</p>
+<h4 id="下载-OpenCV-源代码"><a href="#下载-OpenCV-源代码" class="headerlink" title="# 下载 OpenCV 源代码"></a># <strong>下载 OpenCV 源代码</strong></h4><p>进入 <a href="https://opencv.org/releases.html" target="_blank" rel="noopener">OpenCV 的发布页面</a> 下载 OpenCV 源码包，我下载的是 <code>2.4.13.6</code> 版本。<br>运行 <code>opencv-2.4.13.6-vc14.exe</code>，选择解压目录后解压，我选择解压到 <code>H:\</code>。<br>解压后文件目录如下：</p>
+<pre class="line-numbers language-plaintext"><code class="language-plaintext">H:\opencv
+├── build
+├── sources
+├── LICENSE.txt
+└── README.md.txt
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>为了方便区分，我们把目录改名 <code>opencv-&gt;opencv2413</code><br>接下来打开 build 文件夹，发现无论是 <code>x86</code> 还是 <code>x64</code> 文件夹下都只有 <code>vc14</code> 版本的二进制、库文件等。</p>
+<pre class="line-numbers language-plaintext"><code class="language-plaintext">H:\opencv
+├── build
+|    ├── x86
+|    |    └── vc14
+|    └── x64
+|        └── vc14
+├── sources
+├── LICENSE.txt
+└── README.md.txt
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>而我们的 <code>Visual Studio 2017</code> 对应的版本号是 <code>vc15</code>，也就是官方并没有提供新版本的预编译库文件，所以我要自己动手编译了。这样一来可以把 OpenGL 编译进去，<strong>首先清空 build 目录里的所有内容</strong>，因为我们下一步要将编译后的文件放入 build 目录。</p>
+<p><strong>Tips: VC1x 与 Visual Studio 版本号的对应关系</strong></p>
+<table>
+<thead>
+<tr>
+<th>VC1x</th>
+<th>Visual Studio 版本号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vc15</td>
+<td>Visual Studio 2017</td>
+</tr>
+<tr>
+<td>vc14</td>
+<td>Visual Studio 2015</td>
+</tr>
+<tr>
+<td>vc12</td>
+<td>Visual Studio 2013</td>
+</tr>
+<tr>
+<td>vc11</td>
+<td>Visual Studio 2012</td>
+</tr>
+<tr>
+<td>vc10</td>
+<td>Visual Studio 2010</td>
+</tr>
+</tbody>
+</table>
+<h3 id="0x1-编译-OpenCV"><a href="#0x1-编译-OpenCV" class="headerlink" title="0x1 编译 OpenCV"></a>0x1 编译 OpenCV</h3><h4 id="CMake-GUI-纪元"><a href="#CMake-GUI-纪元" class="headerlink" title="# CMake-GUI 纪元"></a># CMake-GUI 纪元</h4><p>现在打开 <code>cmake-gui</code></p>
+<blockquote>
+<p>Where is the source code: </p>
+</blockquote>
+<p>先选择待编译的源码目录，我选择的是 <code>H:\opencv2413\sources</code></p>
+<blockquote>
+<p>Where to build the binaries:</p>
+</blockquote>
+<p>然后选择编译完成后的生成目录，我选择的是 <code>H:\opencv2413\build</code></p>
+<p>接下来点击左下角的 <code>Configure</code> 按钮，弹出对话框选择 <code>Visual Studio 15 2017</code>，下面的选项默认，然后点击 <code>Finish</code>，等待出现 Configuring done。</p>
+<p><img src="https://i.loli.net/2018/11/24/5bf91600c83ad.png" alt="cmake-configure"></p>
+<p>接下来找到 <code>WITH_OPENGL</code>，并且把它勾选上，这样 OpenCV 就有 OpenGL 加持了。</p>
+<p><strong>再次点击 <code>Configure</code> 按钮，使之生效。</strong></p>
+<p>具体可以查看输出信息，确实是支持 OpenGL 的。</p>
+<pre class="line-numbers language-plaintext"><code class="language-plaintext">...
+GUI: 
+  QT:                          NO
+  Win32 UI:                    YES
+  OpenGL support:              YES (opengl32 glu32)
+  VTK support:                 NO
+...
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>点击 <code>Generate</code> 后等待出现 Generating done，然后点击 <code>Open Project</code> 打开 Visual Studio 项目。</p>
+<h4 id="Visual-Studio-纪元"><a href="#Visual-Studio-纪元" class="headerlink" title="# Visual Studio 纪元"></a># Visual Studio 纪元</h4><p>打开「解决方案资源管理器」，如果找不到可以在「视图(V)」中打开。</p>
+<p><img src="https://i.loli.net/2018/11/24/5bf91a4e5aac5.png" alt="solution"></p>
+<p><strong>首先选择 <code>Release</code> 模式</strong>，右键 <code>INSTALL</code> 选择生成，开始编译，编译的时间视机器的性能而定。</p>
+<p>很长时间过去了…</p>
+<p>最后，我们可以发现编译后的文件在 <code>H:\opencv2413\build\install</code> 文件夹里。</p>
+<p>后续，大概还会尝试编译一些 OpenCV 相关的项目吧😋。</p>
+<h3 id="0x2-参考资料"><a href="#0x2-参考资料" class="headerlink" title="0x2 参考资料"></a>0x2 参考资料</h3><ul>
+<li><a href="https://blog.csdn.net/Dango_miracle/article/details/78681131" target="_blank" rel="noopener">【OpenCV】VS2017配置OpenCV2.4.13.4</a></li>
+</ul>
+
+            
+    <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+        <p>
+            <strong>本文作者：Anapopo</strong>
+            <br>
+            <strong>
+             
+                本文采用 <a rel="nofollow noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC BY-NC-SA 3.0 Unported</a> 协议进行许可，阅读 <a href="/creativecommons.html" target="_blank">相关说明</a>
+            </strong>
+            <br>
+            <strong>本文链接：</strong><a href="https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/">https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/</a>
+        </p>
+    </blockquote>
+
+        </div>
+        <div class="post-footer-info bg-gray">
+            <figure class="avatar centered">
+    <img src="/img/avatar.png">
+</figure>
+<section class="post-footer-date">
+    <p class="card-subtitle text-gray mb-0">Publish: 11月 24, 2018
+        
+    </p>
+</section>
+<section class="post-footer-action">
+    <!-- Post Share -->
+    <div class="dropdown dropdown-right float-right">
+<a class="btn btn-link btn-gray dropdown-toggle" tabindex="0"><i class="icon material-icons casino-icons">share</i></a>
+<ul class="menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Windows 编译 OpenCV&url=https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/index.html&pic=https://blog.kiko.space/img/favicon.png&searchPic=false&style=simple" target="_blank">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Windows 编译 OpenCV&url=https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/index.html&via=Anapopo" target="_blank">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/index.html" target="_blank">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+
+</ul>
+</div>
+    <!-- Post Qrcoe -->
+    
+</section>
+
+        </div>
+        <div class="divider m-0"></div>
+        <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/09/19/install-ubuntu-18.04/">
+                <div class="page-item-title h5"><i class="icon material-icons casino-icons">arrow_forward</i></div>
+                <div class="page-item-subtitle">全新安装 Ubuntu 18.04</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+        
+            <div class="card-footer">
+                <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="btn btn-primary disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://blog.kiko.space/2018/11/24/windows-and-cmake-compile-opencv/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://disqus.com/next/config.json', true);
+    xhr.timeout = 4000;
+    xhr.send();
+    xhr.onload = function() {
+        if(this.status == 200||this.status == 304){
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//kikospace.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            document.querySelector(".disqus_click_btn").setAttribute("style", "display:none")
+        }
+    };
+    xhr.ontimeout = function(e) {
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:block");
+    };
+    xhr.onerror = function(e) {
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:block");
+    };
+    document.querySelector(".disqus_click_btn").onclick=function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//kikospace.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        document.querySelector(".disqus_click_btn").setAttribute("style", "display:none")
+    };
+</script>
+
+            </div>
+        
+    </div>
+
+</div>
+
+
+                </main>
+                <footer class="centered">
+    <div class="footer-content">
+        <div class="footer-sns-list">
+            <!-- Twitter -->
+
+    <a href="https://twitter.com/twitter" target="_blank">
+        <button class="footer-sns-btn footer-sns-twitter"></button></a>
+
+
+<!-- Facebook -->
+
+    <a href="https://www.facebook.com/facebook" target="_blank">
+        <button class="footer-sns-btn footer-sns-facebook"></button></a>
+
+
+<!-- Google + -->
+
+
+<!-- Weibo -->
+
+
+<!-- Instagram -->
+
+
+<!-- Tumblr -->
+
+
+<!-- Github -->
+
+    <a href="https://github.com/anapopo" target="_blank">
+        <button class="footer-sns-btn footer-sns-github"></button></a>
+
+
+<!-- LinkedIn -->
+
+
+<!-- Zhihu -->
+
+
+<!-- Bilibili -->
+
+
+<!-- Telegram -->
+
+
+<!-- V2EX -->
+
+
+<!-- Segmentfault -->
+
+        </div>
+        <div class="footer-copyright">Copyright&nbsp;©&nbsp;<span year=""></span>
+            <a href="https://blog.kiko.space">KIKOのSPACE</a>
+        </div>
+        <div class="footer-develop">
+            <div>Powered by
+                <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+            </div>
+            <div>Theme -
+                <a href="https://github.com/neoFelhz/hexo-theme-spectre" target="_blank" class="footer-develop-a">Spectre</a>
+            </div>
+        </div>
+    </div>
+</footer>
+                <div class="back-to-top rounded">
+    <a href="#"><i class="icon material-icons casino-icons">expand_less</i></a>
+</div>
+            </div>
+        </div>
+        <!-- Import JS -->
+<script>lsloader.js("lazy_js","/libs/js/lazyload.min.js")</script>
+
+<!-- Comment -->
+
+    <!-- 使用 DISQUS js 代码 -->
+
+ 
+
+<script type="text/ls-javascript" id="lazy-load">
+    var myLazyLoad = new LazyLoad({
+        elements_selector: ".lazy"
+    });
+    // Start Queue
+    window.onload = function() {
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    };
+</script>
+<script type="text/javascript">
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+    
+        copyrightSince = 2017;
+            if (copyrightSince === copyrightNow) {
+            textContent.textContent = copyrightNow
+        } else {
+            textContent.textContent = copyrightSince + ' - ' + copyrightNow
+        }
+    
+</script>
+
+<!-- Console log -->
+<script>
+    !function(){for(var e=document.querySelectorAll('script[type="text/ls-javascript"]'),r=0;r<e.length;++r){var o=e[r];lsloader.runInlineScript(o.id,o.id)}}(),
+    console.log(" \n %c Spectre Theme | © neoFelhz | Verision 0.1.1 %c https://github.com/neoFelhz/hexo-theme-spectre ", "color: #fff; background-image: linear-gradient(90deg, rgb(236, 61, 1213) 0%, rgb(94, 108, 198) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(94, 108, 198) 0%, rgb(194, 194, 194) 0%); padding:5px 0;");
+</script>
+    </body>
+
+    
+
+</html>
